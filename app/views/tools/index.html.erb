@@ -11,12 +11,16 @@
 <div class="container">
   <div class="row">
     <% @tools.each do |tool| %>
-      <div class="card col-sm-3 m-3">
-        <img class="card-img-top" src="https://media.adeo.com/media/1417181/visu-chim-ne-2-jpg5c17c08045a8dc00011ee806.jpg?width=582&format=jpg&crop=16:9" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title"><%= tool.name %></h5>
-          <p class="card-text"><%= tool.description %></p>
-        </div>
+      <div class="col-sm-3">
+        <%= link_to tool_path(tool) do %>
+          <div class="card m-3">
+            <img class="card-img-top" src="https://media.adeo.com/media/1417181/visu-chim-ne-2-jpg5c17c08045a8dc00011ee806.jpg?width=582&format=jpg&crop=16:9" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%= tool.name %></h5>
+              <p class="card-text"><%= tool.description %></p>
+            </div>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
