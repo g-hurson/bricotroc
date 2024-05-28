@@ -8,6 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Booking.destroy_all
+Tool.destroy_all
+User.destroy_all
 # Users for development
 
 User.create(email: "geraldine@gmail.com", password: "1111")
