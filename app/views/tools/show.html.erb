@@ -1,0 +1,38 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div class="card-tool rounded">
+        <%= image_tag "perceuse.jpeg", alt: @tool.name%>
+        <div class="card-tool-infos">
+          <div>
+            <h2><%=@tool.name %></h2>
+            <p><%=@tool.description %></p>
+          </div>
+          <h2 class="card-tool-pricing"><%=@tool.category%></h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+       <%= simple_form_for [@tool, @booking] do |f| %>
+         <%= f.input :start_date,
+      as: :string, # same as input type="text"
+      input_html: {
+        data: {
+          controller: "datepicker" # same as data-controller="datepicker"
+        }
+      }
+    %>
+    <%= f.input :end_date,
+      as: :string, # same as input type="text"
+      input_html: {
+        data: {
+          controller: "datepicker" # same as data-controller="datepicker"
+        }
+      }
+    %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
