@@ -1,9 +1,6 @@
 class BookingsController < ApplicationController
-  # before_action :set_booking, only: #[à définir]
+  before_action :set_booking, only: [:show]
   before_action :set_tool, only: %i[new create]
-
-  def new
-  end
 
   def show
   end
@@ -15,7 +12,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.tool = @tool
     @booking.status = Booking::STATUS[0]
-    raise
+    @booking.user = current_user
     if @booking.save
       redirect_to tool_path(@tool)
     else
@@ -30,7 +27,7 @@ class BookingsController < ApplicationController
   end
 
   def set_booking
-    @booking = Booking.new
+    @booking = Booking.find(params[:id])
   end
 
   def set_tool
