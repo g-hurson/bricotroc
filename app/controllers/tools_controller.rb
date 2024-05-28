@@ -1,7 +1,9 @@
 class ToolsController < ApplicationController
-  before_action :set_tool, only: #[à définir]
+  before_action :set_tool, only: [:index]
 
   def index
+    @tools = Tool.all
+    @booking = Booking.new
   end
 
   def show

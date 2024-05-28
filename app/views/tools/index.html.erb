@@ -1,0 +1,15 @@
+<h1>Tools Index</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= render "form", booking: @booking  %>
+
+      <ul>
+        <% @tools.each do |tool| %>
+          <li><%= tool.name %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
