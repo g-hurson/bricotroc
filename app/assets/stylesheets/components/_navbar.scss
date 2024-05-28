@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $blue;
+  position: sticky;
+  top: 0;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +11,41 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.nav-link {
+  margin-right: 24px;
+  color: $yellow;
+
+  &:hover {
+    color: $yellow;
+    font-weight: bold;
+  }
+
+  &:active {
+    color: $yellow;
+    font-weight: bold;
+  }
+
+  &:focus {
+    color: $yellow;
+    font-weight: bold;
+  }
+
+  &:disabled {
+    color: $light-purple;
+  }
+}
+
+.dropdown-menu {
+  background: $light-purple;
+}
+
+.dropdown-item {
+  color: $blue;
+
+  &:hover {
+    color: $light-purple;
+    background: $blue;
+  }
 }
