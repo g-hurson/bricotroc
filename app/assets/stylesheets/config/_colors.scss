@@ -1,10 +1,19 @@
 // Define variables for your color scheme
 
-// For example:
+// Bricotroc special colors, except for red/orange/green which are the bootstrap std ones:
 $red: #FD1015;
-$blue: #0D6EFD;
-$yellow: #FFC65A;
+$blue: #371373;
+$yellow: #FFBD00;
 $orange: #E67E22;
 $green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+$gray: #454545;
+$light-gray: #F8F8F8;
+
+// Ex bootstrap colors kept below:
+$blue-std: #0D6EFD;
+$yellow-std: #FFC65A;
+$gray-std: #0E0000;
+$light-gray-std: #F4F4F4;
+
+// Remaining bricotroc colors:
+$light-purple: #E9E3F4
