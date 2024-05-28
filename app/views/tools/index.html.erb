@@ -1,4 +1,9 @@
-<h1>Tools Index</h1>
+<div class="banner">
+  <div class="container">
+    <h4>Mon voisin n'utilise pas sa perceuse...</h4>
+    <h1>BricoTroc : et si on changeait d'époque ?</h1>
+  </div>
+</div>
 
 <div class="container">
   <div class="row">
@@ -13,7 +18,7 @@
     <% @tools.each do |tool| %>
       <div class="col-sm-3">
         <%= link_to tool_path(tool) do %>
-          <div class="card m-3">
+          <div class="index-tool-card m-3">
             <img class="card-img-top" src="https://media.adeo.com/media/1417181/visu-chim-ne-2-jpg5c17c08045a8dc00011ee806.jpg?width=582&format=jpg&crop=16:9" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title"><%= tool.name %></h5>
@@ -24,4 +29,27 @@
       </div>
     <% end %>
   </div>
+</div>
+
+<div class="row row-cols-md-3 row-cols-lg-4 g-4 card-group mt-2 mx-5 p-5">
+  <% @tools.each do |tool| %>
+    <div class="col-sm-3">
+      <%= link_to tool_path(tool) do %>
+        <div class="index-card-tool">
+          <img src="https://media.adeo.com/media/1417181/visu-chim-ne-2-jpg5c17c08045a8dc00011ee806.jpg?width=582&format=jpg&crop=16:9" alt="Card image cap"/>
+          <div class="index-card-tool-infos">
+              <h2><%= tool.name %></h2>
+              <div>
+                <%= link_to "#", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                <i class="fa-solid fa-trash-can text-dark"></i>
+                <% end %>
+              </div>
+          </div>
+          <div class="index-card-tool-desc">
+            <p><%= tool.description %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
