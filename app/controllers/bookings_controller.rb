@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.tool = @tool
     @booking.status = Booking::STATUS[0]
+    raise
     if @booking.save
       redirect_to tool_path(@tool)
     else

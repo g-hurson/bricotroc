@@ -15,8 +15,22 @@
     </div>
     <div class="col-4">
        <%= simple_form_for [@tool, @booking] do |f| %>
-        <%= f.text_field :start_date, data:{ provide:'datepicker' } %>
-        <%= f.text_field :end_date, data:{ provide:'datepicker' } %>
+         <%= f.input :start_date,
+      as: :string, # same as input type="text"
+      input_html: {
+        data: {
+          controller: "datepicker" # same as data-controller="datepicker"
+        }
+      }
+    %>
+    <%= f.input :end_date,
+      as: :string, # same as input type="text"
+      input_html: {
+        data: {
+          controller: "datepicker" # same as data-controller="datepicker"
+        }
+      }
+    %>
         <%= f.button :submit, class: "btn btn-primary" %>
       <% end %>
     </div>
