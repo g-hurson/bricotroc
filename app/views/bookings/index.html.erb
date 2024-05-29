@@ -1,2 +1,32 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<div class="banner" id="banner-bookings">
+  <div class="container text-center">
+    <h1 class="mb-3">Mes réservations
+      <i class="fa-solid fa-circle mx-3"></i>
+      <%= @bookings.count %>
+      <i class="fa-solid fa-circle mx-3"></i>
+    </h1>
+  </div>
+</div>
+
+<div class="row row-cols-md-3 row-cols-lg-4 g-4 card-group mt-2 mx-5 p-5">
+  <% @bookings.sort_by{ |booking| booking.start_date }.each do |booking| %>
+    <div class="col-sm-3">
+      <div class="index-card-tool">
+        <img src="https://media.adeo.com/media/1417181/visu-chim-ne-2-jpg5c17c08045a8dc00011ee806.jpg?width=582&format=jpg&crop=16:9" />
+        <div class="index-card-tool-dates text-center mt-2">
+          <%= booking.start_date %>
+          <i class="fa-solid fa-circle-chevron-right mx-3"></i>
+          <%= booking.end_date %>
+        </div>
+        <div class="index-card-tool-infos">
+            <h5><%= link_to booking.tool.name, tool_path(booking.tool), class: "text-decoration-none text-dark" %></h5>
+            <div>
+              <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-trash-can text-dark"></i>
+              <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

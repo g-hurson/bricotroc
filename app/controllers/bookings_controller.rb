@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def index
+    @bookings = current_user.bookings
   end
 
   def create
@@ -14,10 +15,16 @@ class BookingsController < ApplicationController
     @booking.status = Booking::STATUS[0]
     @booking.user = current_user
     if @booking.save
-      redirect_to tool_path(@tool)
+      redirect_to bookings_path
     else
       render "tools/show", status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_path, status: :see_other
   end
 
   private

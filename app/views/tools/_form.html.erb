@@ -1,4 +1,4 @@
-<%= simple_form_for  booking,
+<%= simple_form_for  [tool], method: :get,
   data: {
     insert_in_list_target: "form", # same as data-insert-in-list-target="form"
     action: "submit->insert-in-list#send" # same as data-action="submit->insert-in-list#send"
@@ -6,26 +6,33 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :start_date,
-      as: :string, # same as input type="text"
-      input_html: {
-        data: {
-          controller: "datepicker" # same as data-controller="datepicker"
+  <div class="form-inputs justify-content-md-center px-4 d-flex">
+    <div class="form-field form-first d-flex justify-content-center align-items-center p-2">
+      <%= f.input :category, label: false, prompt: 'Catégorie', as: :select, collection: Tool::CATEGORIES%>
+    </div>
+    <div class="form-field d-flex justify-content-center align-items-center p-2">
+      <%= f.input :start_date, label: false, placeholder: Date.today,
+        as: :fake, # same as input type="text"
+        input_html: {
+          data: {
+            controller: "datepicker" # same as data-controller="datepicker"
+          }
         }
-      }
-    %>
-    <%= f.input :end_date,
-      as: :string, # same as input type="text"
-      input_html: {
-        data: {
-          controller: "datepicker" # same as data-controller="datepicker"
+      %>
+    </div>
+    <div class="form-field d-flex justify-content-center align-items-center p-2">
+      <%= f.input :end_date, label: false,
+        as: :fake, # same as input type="text"
+        input_html: {
+          data: {
+            controller: "datepicker" # same as data-controller="datepicker"
+          }
         }
-      }
-    %>
+      %>
+    </div>
+    <div class="form-actions form-submit d-flex justify-content-center">
+      <%= f.button :submit, "Rechercher"%>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
 <% end %>

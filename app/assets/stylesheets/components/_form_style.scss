@@ -1,0 +1,35 @@
+.form-submit {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  padding-right: 40px !important;
+  border-right: 1px solid gray;
+}
+
+.form-inputs {
+}
+
+.form-field, .form-submit {
+  border-left: 1px solid gray;
+  background-color: white;
+  &:hover {
+    background-color: $light-purple;
+  }
+}
+
+.form-first {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  padding-left: 40px !important;
+}
+
+.form-control, .form-select {
+  background-color: white;
+  border: none;
+}
+
+.select, .fake {
+  margin-bottom: 0 !important;
+  &:hover {
+    background-color: $light-purple;
+  }
+}
