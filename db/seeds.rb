@@ -19,7 +19,7 @@ User.create(email: "joaquin@gmail.com", password: "3333")
 
 #Tools for development
 
-Tool.create(name: "Perceuse B&D", description: "Perceuse Black & Decker sans fil", category: Tool::CATEGORIES[1], user: User.first)
+Tool.new(name: "Perceuse B&D", description: "Perceuse Black & Decker sans fil", category: Tool::CATEGORIES[1], user: User.first)
 Tool.create(name: "Ponceuse multifunction", description: "Ponceuse delta multifonction 130W", category: Tool::CATEGORIES[0], user: User.first)
 Tool.create(name: "Scie circulaire", description: "Scie circulaire plongeante MAKITA SP6000J1 - 1300W - 165MM", category: Tool::CATEGORIES[3], user: User.last)
 Tool.create(name: "Visseuse à choc", description: "Lot outils MAKITA LCT204J (Perceuse Visseuse DF330D - Visseuse à Choc TD090D", category: Tool::CATEGORIES[2], user: User.last)
