@@ -1,17 +1,17 @@
 
 <div class="container h-100 d-flex flex-column mt-4">
-  <div class="row h-40">
+  <div class="row">
     <div class="col-lg-8 col-md-12 mb-4 mb-lg-0">
-      <%= image_tag "perceuse.jpeg", alt: @tool.name, class: "w-100 shadow-1-strong rounded mb-4"%>
+      <%= image_tag "scie1.jpeg", alt: @tool.name, class: "w-100 shadow-4-strong rounded mb-4"%>
     </div>
 
     <div class="col-lg-4 mb-4 mb-lg-0">
-      <%= image_tag "perceuse.jpeg", alt: @tool.name, class: "w-100 shadow-1-strong rounded mb-4"%>
-      <%= image_tag "perceuse.jpeg", alt: @tool.name, class: "w-100 shadow-1-strong rounded mb-4"%>
+      <%= image_tag "scie3.jpeg", alt: @tool.name, class: "w-100 shadow-4-strong rounded mb-4"%>
+      <%= image_tag "scie2.jpeg", alt: @tool.name, class: "w-100 shadow-4-strong rounded mb-4"%>
     </div>
   </div>
   <%# Tool information %>
-  <div class="row flex-grow-1">
+  <div class="row">
     <div class="col-8">
       <h2><%=@tool.name %></h2>
       <div class="card-tool rounded">
@@ -27,7 +27,7 @@
       <%= simple_form_for [@tool, @booking] do |f| %>
         <%= f.input :start_date, as: :string, min: 0.days.ago, input_html: { data: { controller: "datepicker" }}%>
         <%= f.input :end_date, as: :string, min: 0.days.ago, input_html: { data: { controller: "datepicker" }}%>
-        <%= f.button :submit, class: "btn btn-primary" %>
+        <%= f.submit "Reserver", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
