@@ -4,6 +4,7 @@ import flatpickr from "flatpickr"
 // Connects to data-controller="datepicker"
 export default class extends Controller {
   connect() {
-    flatpickr(this.element)
+    const fpConf = {defaultDate: "today", minDate: "today"}
+    flatpickr(this.element, fpConf)
   }
 }
