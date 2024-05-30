@@ -1,38 +1,42 @@
-<%= simple_form_for  [tool], method: :get,
-  data: {
-    insert_in_list_target: "form", # same as data-insert-in-list-target="form"
-    action: "submit->insert-in-list#send" # same as data-action="submit->insert-in-list#send"
-  } do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div  class="container">
+   <div  class="row justify-content-center">
+      <div  class="col-sm-8 my-3" data-controller="position">
+         <%= form_with url: tools_path, method:  :get, class: "d-flex form-bar"  do |form| %>
 
-  <div class="form-inputs justify-content-md-center px-4 d-flex">
-    <div class="form-field form-first d-flex justify-content-center align-items-center p-2">
-      <%= f.input :category, label: false, prompt: 'Catégorie', as: :select, collection: Tool::CATEGORIES%>
-    </div>
-    <div class="form-field d-flex justify-content-center align-items-center p-2">
-      <%= f.input :start_date, label: false, placeholder: Date.today,
-        as: :fake, # same as input type="text"
-        input_html: {
-          data: {
-            controller: "datepicker" # same as data-controller="datepicker"
-          }
-        }
-      %>
-    </div>
-    <div class="form-field d-flex justify-content-center align-items-center p-2">
-      <%= f.input :end_date, label: false,
-        as: :fake, # same as input type="text"
-        input_html: {
-          data: {
-            controller: "datepicker" # same as data-controller="datepicker"
-          }
-        }
-      %>
-    </div>
-    <div class="form-actions form-submit d-flex justify-content-center">
-      <%= f.button :submit, "Rechercher"%>
-    </div>
-  </div>
+            <div class="form-field form-first d-flex justify-content-center align-items-center p-2">
+              <%= form.select :category, Tool::CATEGORIES, prompt: "Catégorie" %>
+            </div>
+            <%= form.hidden_field :positionLong, data: { "position-target": "long" } %>
 
-<% end %>
+            <%= form.hidden_field :positionLat, data: { "position-target": "lat" } %>
+
+            <div class="form-field d-flex justify-content-center align-items-center p-2">
+              <%= form.range_field :distance, in: 0..50, step: 5, value: 5, oninput: "this.nextElementSibling.value = this.value" %>
+              <output>5</output>
+              <output>km</output>
+            </div>
+
+            <div class="form-field d-flex justify-content-center align-items-center p-2">
+              <output>Du:  </output>
+              <%= form.text_field :start_date,
+                data: {
+                  controller: "datepicker" # same as data-controller="datepicker"
+                }
+              %>
+            </div>
+
+            <div class="form-field d-flex justify-content-center align-items-center p-2">
+              <output>Au:  </output>
+              <%= form.text_field :end_date,
+                data: {
+                  controller: "datepicker" # same as data-controller="datepicker"
+                }
+              %>
+            </div>
+
+            <%= submit_tag "Rechercher", name:  "", class:  "btn btn-primary"  %>
+
+          <%  end  %>
+       </div>
+    </div>
+</div>

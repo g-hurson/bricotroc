@@ -2,10 +2,10 @@ class ToolsController < ApplicationController
   before_action :set_tool, only: [:show, :create]
 
   def index
-    if params[:tool].nil?
+    if params[:category].nil?
       @tools = Tool.all
     else
-      @tools = Tool.all.select { |tool| tool.category == params[:tool][:category] }
+      @tools = Tool.all.select { |tool| tool.category == params[:category] }
       @tools = Tool.all if @tools.empty?
     end
     @tool = Tool.new
