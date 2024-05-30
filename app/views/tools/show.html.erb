@@ -12,7 +12,7 @@
       <div class="image-grid">
         <% @tool.photos.each do |photo| %>
           <div class="image-item">
-            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
           </div>
         <% end %>
       </div>
@@ -27,7 +27,16 @@
           <div>
             <p><%=@tool.description %></p>
           </div>
-          <h3 class=""><%=@tool.category%></h3>
+          <div class="mb-2">
+            <% @tool.rating.times do %>
+              <i class="fa-solid fa-star"></i>
+            <% end %>
+          </div>
+          <div class="index-card-tool-desc">
+            <p><i class="fa-solid fa-wrench"></i><strong>Catégorie : </strong><%= @tool.category %></p>
+            <p><i class="fa-solid fa-tag"></i><strong>Marque : </strong><%= @tool.brand %></p>
+            <p><i class="fa-solid fa-location-dot"></i><strong>Disponible à : </strong>DISTANCE TO DO</p>
+          </div>
         </div>
       </div>
     </div>
