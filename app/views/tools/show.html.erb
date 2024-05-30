@@ -1,34 +1,50 @@
 
-<div class="container h-100 d-flex flex-column mt-4">
-  <div class="row">
-    <div class="col-lg-8 col-md-12 mb-4 mb-lg-0">
-      <%= image_tag "scie1.jpeg", alt: @tool.name, class: "w-100 shadow-4-strong rounded mb-4"%>
-    </div>
-
-    <div class="col-lg-4 mb-4 mb-lg-0">
-      <%= image_tag "scie3.jpeg", alt: @tool.name, class: "w-100 shadow-4-strong rounded mb-4"%>
-      <%= image_tag "scie2.jpeg", alt: @tool.name, class: "w-100 shadow-4-strong rounded mb-4"%>
-    </div>
-  </div>
-  <%# Tool information %>
-  <div class="row">
+<div class="container">
+  <div class="row mt-4">
     <div class="col-8">
-      <h2><%=@tool.name %></h2>
-      <div class="card-tool rounded">
-        <div class="card-tool-infos">
-          <div>
-            <p><%=@tool.description %></p>
-          </div>
-          <h2 class="card-tool-pricing"><%=@tool.category%></h2>
+      <div class="image-cover">
+        <div class="image-item">
+          <%= cl_image_tag @tool.photos.first.key, height: 300, width: 400, crop: :fill %>
         </div>
       </div>
     </div>
     <div class="col-4">
-      <%= simple_form_for [@tool, @booking] do |f| %>
-        <%= f.input :start_date, as: :string, min: 0.days.ago, input_html: { data: { controller: "datepicker" }}%>
-        <%= f.input :end_date, as: :string, min: 0.days.ago, input_html: { data: { controller: "datepicker" }}%>
-        <%= f.submit "Reserver", class: "btn btn-primary" %>
-      <% end %>
+      <div class="image-grid">
+        <% @tool.photos.each do |photo| %>
+          <div class="image-item">
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%# Tool information %>
+  <div class="row mt-4">
+    <div class="col-8">
+      <h2><%=@tool.name %></h2>
+      <div class="">
+        <div class="">
+          <div>
+            <p><%=@tool.description %></p>
+          </div>
+          <h3 class=""><%=@tool.category%></h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="booking-form">
+        <%= simple_form_for [@tool, @booking] do |f| %>
+          <div class="form-inputs">
+            <%= f.input :start_date, label: "début", as: :string, input_html: { data: { controller: "datepicker"}}%>
+          </div>
+          <div class="form-inputs">
+            <%= f.input :end_date, label: "fin", as: :string, input_html: { data: { controller: "datepicker"}}%>
+          </div>
+          <div class="form-inputs">
+            <%= f.submit "Reserver", class: "btn btn-primary"%>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
   <!-- Gallery -->
