@@ -1,5 +1,5 @@
 class Tool < ApplicationRecord
-  CATEGORIES = ["ponceuse", "perceuse", "visseuse", "scie", "multifonction", "divers"]
+  CATEGORIES = ["Ponceuse", "Perceuse", "Visseuse", "Scie", "Multifonction", "Divers"]
   belongs_to :user
   has_many :bookings
   has_many_attached :photos
