@@ -19,7 +19,6 @@
       <%= link_to tool_path(tool), class: 'text-decoration-none' do %>
         <div class="index-card-tool">
           <%= cl_image_tag tool.photos.first.key, height: 300, width: 400, crop: :thumb %>
-          <%# <img src="https://media.adeo.com/media/1417181/visu-chim-ne-2-jpg5c17c08045a8dc00011ee806.jpg?width=582&format=jpg&crop=16:9" alt="Card image cap"/> %>
           <div class="index-card-tool-infos">
               <h2><%= tool.name %></h2>
               <div>
