@@ -4,10 +4,22 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 16px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     background: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), $light-purple;
   }
+}
+
+.index-card-tool-bookings {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: $light-purple;
+  color: $blue;
+  padding: 5px 10px;
+  border-radius: 16px;
 }
 
 .index-card-tool .trash-icon{
