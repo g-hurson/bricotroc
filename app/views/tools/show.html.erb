@@ -20,7 +20,7 @@
   </div>
   <%# Tool information %>
   <div class="row mt-4">
-    <div class="col-8">
+    <div class="col-sm-12 col-md-12 col-lg-8">
       <h2><%=@tool.name %></h2>
       <div class="">
         <div class="">
@@ -40,7 +40,7 @@
         </div>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-sm-12 col-md-12 col-lg-4">
       <div class="booking-form">
         <%= simple_form_for [@tool, @booking] do |f| %>
           <div class="form-inputs">

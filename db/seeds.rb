@@ -79,16 +79,16 @@ photos_visseuse.each do |photo|
 end
 tool.save
 
-tool = Tool.new(name: "Kit de presse",
-  description: "Combinées Kit Montre & Presse Montre, Eventronic Professionnel Kit Reparation Montre, Kit Changement Pile Montre, Accessoires Montre, Outil Montre et Presse Montre avec 12 Tailles de Moules",
+tool = Tool.new(name: "Kit de pressage",
+  description: "Wanocean Kit de pressage pour roulement de cycle, kit de pressage de roulement de vélo, outil de montage de moyeu de VTT, outil d'installation",
   category: Tool::CATEGORIES[5],
   user: User.last,
   address: "1 Rue Justin Godart, 69004 Lyon",
-  brand: "Inconnu",
+  brand: "Wanocean",
   rating: 2,
   condition: Tool::CONDITION[2])
 
-photos_kit = ["kit1.jpg", "kit2.jpg", "kit3.jpg"]
+photos_kit = ["kit1.jpg", "kit2.jpg", "kit3.jpg", "kit4.jpg"]
 photos_kit.each do |photo|
   tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photos_kit.shift}")), filename: photo, content_type: "image/jpg")
 end
