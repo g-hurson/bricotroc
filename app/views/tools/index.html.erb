@@ -5,35 +5,43 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row justify-content-md-center m-3">
-    <div class="col-sm">
-      <%= render "form", tool: @tool %>
+<div data-controller="position">
+  <div class="container">
+    <div class="row justify-content-md-center m-3">
+      <div class="col-sm">
+        <%= render "form", tool: @tool %>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="row row-cols-md-3 row-cols-lg-4 g-4 card-group mt-2 mx-5 p-5">
-  <% @tools.each do |tool| %>
-    <div class="col-sm-3">
-      <%= link_to tool_path(tool), class: 'text-decoration-none' do %>
-        <div class="index-card-tool">
-          <%= cl_image_tag tool.photos.first.key, height: 300, width: 400, crop: :thumb %>
-          <div class="index-card-tool-infos">
-              <h2><%= tool.name %></h2>
-              <div>
-                <% tool.rating.times do %>
-                  <i class="fa-solid fa-star"></i>
-                <% end %>
-              </div>
+  <div class="row row-cols-md-3 row-cols-lg-4 g-4 card-group mt-2 mx-5 p-5" >
+    <% @tools.each do |tool| %>
+      <div class="col-sm-3">
+        <%= link_to tool_path(tool), class: 'text-decoration-none' do %>
+          <div class="index-card-tool">
+            <%= cl_image_tag tool.photos.first.key, height: 300, width: 400, crop: :thumb %>
+            <div class="index-card-tool-infos">
+                <h2><%= tool.name %></h2>
+                <div>
+                  <% tool.rating.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                </div>
+            </div>
+            <div class="index-card-tool-desc">
+              <p><i class="fa-solid fa-wrench"></i><strong>Catégorie : </strong><%= tool.category %></p>
+              <p><i class="fa-solid fa-tag"></i><strong>Marque : </strong><%= tool.brand %></p>
+              <p><i class="fa-solid fa-location-dot"></i><strong>Disponible à : </strong>
+                <p data-position-target="toolPos">
+                  DISTANCE TO DO
+                  <input type="hidden" id="toolLat" name="toolLat" value=<%= tool.latitude %> />
+                  <input type="hidden" id="toolLong" name="toolLong" value=<%= tool.longitude %> />
+                </p>
+              </p>
+            </div>
           </div>
-          <div class="index-card-tool-desc">
-            <p><i class="fa-solid fa-wrench"></i><strong>Catégorie : </strong><%= tool.category %></p>
-            <p><i class="fa-solid fa-tag"></i><strong>Marque : </strong><%= tool.brand %></p>
-            <p><i class="fa-solid fa-location-dot"></i><strong>Disponible à : </strong>DISTANCE TO DO</p>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
