@@ -1,7 +1,8 @@
 .card-tool {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  box-shadow: $box-shadow;
+  border-radius: $border-radius-lg;
 }
 
 .card-tool > img {
@@ -29,6 +30,15 @@
   align-items: flex-end;
   position: relative;
 }
+
+.card-tool .card-tool-category {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
 
 .card-tool-infos .card-tool-user {
   position: absolute;
