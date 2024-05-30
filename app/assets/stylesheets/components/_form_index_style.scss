@@ -1,4 +1,4 @@
-.form-submit {
+.form-index-submit {
   width: 80px;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
@@ -14,7 +14,7 @@
 
 }
 
-.form-field, .form-submit {
+.form-index-field, .form-index-submit {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background-color: white;
   &:hover {
@@ -26,7 +26,7 @@
   }
 }
 
-.form-first {
+.form-index-first {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
@@ -37,7 +37,7 @@
   }
 }
 
-.form-control, .form-select {
+.form-index-control, .form-index-select {
   background-color: white;
   border: none;
 }
