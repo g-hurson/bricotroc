@@ -1,5 +1,5 @@
 class ToolsController < ApplicationController
-  before_action :set_tool, only: [:show, :create]
+  before_action :set_tool, only: [:show, :destroy]
 
   def index
     if params[:tool].nil?
@@ -16,10 +16,23 @@ class ToolsController < ApplicationController
     @booking = Booking.new
   end
 
-  def new
+  def my_tools
+    @tools = current_user.tools
+    @tool = Tool.new
+    @tool.user = current_user
   end
 
   def create
+    @tools = Tool.all
+    @tool = Tool.new(tool_params)
+    @tool.user = current_user
+    @tool.rating = (0..5).to_a.sample
+    if @tool.save
+      redirect_to my_tools_path
+    else
+      @show_form = true
+      render "my_tools", status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -29,12 +42,14 @@ class ToolsController < ApplicationController
   end
 
   def destroy
+    @tool.destroy
+    redirect_to my_tools_path, status: :see_other
   end
 
   private
 
   def tool_params
-
+    params.require(:tool).permit(:name, :description, :category, :condition, :rating, :brand, :address)
   end
 
   def set_tool

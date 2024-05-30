@@ -1,0 +1,63 @@
+<div class="banner" id="banner-my-tools">
+  <div class="container text-center">
+    <h1 class="mb-3">Mes annonces
+      <i class="fa-solid fa-circle mx-3"></i>
+      <%= @tools.count %>
+      <i class="fa-solid fa-circle mx-3"></i>
+    </h1>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <a class="btn btn-info rounded-pill m-3" data-bs-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseForm">
+    Déposer une annonce
+  </a>
+</div>
+
+<div class="d-flex justify-content-center">
+  <div class="collapse <%= 'show' if @show_form %> m-4 w-25 text-center" id="collapseForm">
+    <%= simple_form_for(@tool) do |f| %>
+      <div class="form-group">
+        <%= f.input :category, label: "Catégorie", as: :select, collection: Tool::CATEGORIES, class: "form-control" %>
+        <%= f.input :name, label: "Nom", class: "form-control" %>
+        <%= f.input :brand, label: "Marque", class: "form-control" %>
+        <%= f.input :description, label: "Description", class: "form-control" %>
+        <%= f.input :condition, label: "Etat du produit", as: :select, collection: Tool::CONDITION, class: "form-control" %>
+        <%= f.input :address, class: "form-control" %>
+      </div>
+      <%= f.submit "Submit", class: "btn btn-info"%>
+    <% end %>
+  </div>
+</div>
+
+<div class="row row-cols-md-3 row-cols-lg-4 g-4 card-group mx-5 px-5 pb-5">
+  <% @tools.sort_by{ |tool| tool.created_at }.reverse.each do |tool| %>
+    <div class="col-sm-3">
+      <%= link_to tool_path(tool), class: 'text-decoration-none' do %>
+        <div class="index-card-tool">
+          <img src="https://media.adeo.com/media/1417181/visu-chim-ne-2-jpg5c17c08045a8dc00011ee806.jpg?width=582&format=jpg&crop=16:9" alt="Card image cap"/>
+          <% if tool.bookings.any? %>
+            <div class="index-card-tool-bookings" >
+              <h2><%= tool.bookings.count %> demandes en cours</h2>
+            </div>
+          <% end %>
+          <div class="index-card-tool-infos">
+            <h2><%= tool.name %></h2>
+            <div>
+              <% unless tool.rating.nil? %>
+                <% tool.rating.times do %>
+                  <i class="fa-solid fa-star"></i>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="index-card-tool-desc">
+            <p><i class="fa-solid fa-wrench"></i><strong>Catégorie : </strong><%= tool.category %></p>
+            <p><i class="fa-solid fa-tag"></i><strong>Marque : </strong><%= tool.brand %></p>
+            <p><i class="fa-solid fa-ranking-star"></i><strong>Etat : </strong><%= tool.condition %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -29,3 +29,12 @@
     text-align: right;
   }
 }
+
+#banner-my-tools {
+  background-image: asset-url("banner-my-tools-photo.png");
+
+  h1 {
+    color: $yellow;
+    text-align: right;
+  }
+}
