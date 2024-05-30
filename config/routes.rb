@@ -16,4 +16,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:show, :index, :destroy]
+  get "my_tools", to: "tools#my_tools", as: :my_tools
+
 end
