@@ -4,7 +4,6 @@ class ToolsController < ApplicationController
   def index
     if params[:category].nil?
       @tools = Tool.all
-      puts "\n\nCOULDNT FIND ANY CATEGORY\n\n"
     else
       @tools = Tool.all.select do |tool|
         (tool.category == params[:category]) &&
@@ -13,6 +12,12 @@ class ToolsController < ApplicationController
                                                     tool.latitude,
                                                     tool.longitude) <= params[:distance].to_f)
       end
+    end
+    @markers = @tools.geocoded.map do |tool|
+      {
+        lat: tool.latitude,
+        lng: tool.longitude
+      }
     end
     @tool = Tool.new
     @booking = Booking.new
