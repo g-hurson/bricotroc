@@ -19,46 +19,80 @@ User.create(email: "joaquin@gmail.com", password: "3333")
 
 #Tools for development
 
-Tool.create(name: "Perceuse B&D",
-  description: "Perceuse Black & Decker sans fil",
+tool = Tool.new(name: "Perceuse B&D",
+  description: "BLACK+DECKER BDCDD12-QW Perceuse-visseuse sans fil - Chargeur inclus, 10.8V, Sans coffret, 1 batterie",
   category: Tool::CATEGORIES[1],
   user: User.first,
   address: "6 rue du Repos 69007 LYON",
   brand: "Black & Decker",
   rating: 4,
   condition: Tool::CONDITION[0])
-Tool.create(name: "Ponceuse multifunction",
+
+photos_perceuse = ["perceuse1.jpg", "perceuse2.jpg", "perceuse3.jpg"]
+photos_perceuse.each do |photo|
+ tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photos_perceuse.shift}")), filename: photo, content_type: "image/jpg")
+end
+tool.save
+
+tool = Tool.new(name: "Ponceuse multifunction",
   description: "Ponceuse delta multifonction 130W",
   category: Tool::CATEGORIES[0],
   user: User.first,
   address: "51 rue Anatole France 69100 VILLEURBANNE",
-  brand: "Bosch",
+  brand: "Delta",
   rating: 5,
   condition: Tool::CONDITION[1])
-Tool.create(name: "Scie circulaire",
-  description: "Scie circulaire plongeante MAKITA SP6000J1 - 1300W - 165MM",
+
+photos_ponceuse = ["ponceuse1.jpg", "ponceuse2.jpg", "ponceuse3.jpg"]
+photos_ponceuse.each do |photo|
+  tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photos_ponceuse.shift}")), filename: photo, content_type: "image/jpg")
+end
+tool.save
+
+tool = Tool.new(name: "Scie manuelle",
+  description: "Scie égoïne à bois universelle 500 mm Sharpcut - STANLEY - STHT20367-1",
   category: Tool::CATEGORIES[3],
   user: User.last,
   address: "1 Rue Justin Godart, 69004 Lyon",
-  brand: "Makita",
+  brand: "Stanley",
   rating: 3,
   condition: Tool::CONDITION[2])
-Tool.create(name: "Visseuse à choc",
-  description: "Lot outils MAKITA LCT204J (Perceuse Visseuse DF330D - Visseuse à Choc TD090D",
+
+photos_scie = ["scie1.jpeg", "scie2.jpeg", "scie3.jpeg"]
+photos_scie.each do |photo|
+  tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photos_scie.shift}")), filename: photo, content_type: "image/jpeg")
+end
+tool.save
+
+tool = Tool.new(name: "Visseuse à choc",
+  description: "DEWALT - Boulonneuse à Chocs 1/2' Brushless XR 18V 5Ah Li-ion - DCF899P2-QW - Visseuse à Choc sans Fil avec Coffret TSTAK, Chargeur, 2 Batteries 5 Ah",
   category: Tool::CATEGORIES[2],
   user: User.last,
   address: "1 Rue Justin Godart, 69004 Lyon",
-  brand: "Makita",
+  brand: "Dewalt",
   rating: 4,
   condition: Tool::CONDITION[0])
-Tool.create(name: "Kit de presse",
-  description: "Ensemble D'Outils De Roulement De Vélo Outil D'Installation D'Outils De Montage De Moyeu",
+
+photos_visseuse = ["visseuse1.jpg", "visseuse2.jpg", "visseuse3.jpg"]
+photos_visseuse.each do |photo|
+  tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photos_visseuse.shift}")), filename: photo, content_type: "image/jpg")
+end
+tool.save
+
+tool = Tool.new(name: "Kit de presse",
+  description: "Combinées Kit Montre & Presse Montre, Eventronic Professionnel Kit Reparation Montre, Kit Changement Pile Montre, Accessoires Montre, Outil Montre et Presse Montre avec 12 Tailles de Moules",
   category: Tool::CATEGORIES[5],
   user: User.last,
   address: "1 Rue Justin Godart, 69004 Lyon",
   brand: "Inconnu",
   rating: 2,
   condition: Tool::CONDITION[2])
+
+photos_kit = ["kit1.jpg", "kit2.jpg", "kit3.jpg"]
+photos_kit.each do |photo|
+  tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photos_kit.shift}")), filename: photo, content_type: "image/jpg")
+end
+tool.save
 
 # Bookings for development
 
