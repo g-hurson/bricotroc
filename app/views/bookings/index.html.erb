@@ -12,20 +12,18 @@
   <% @bookings.sort_by{ |booking| booking.start_date }.each do |booking| %>
     <div class="col-sm-3">
       <div class="index-card-tool">
+        <div class="trash-icon">
+          <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+          <i class="fa-solid fa-trash-can" style="color: $blue"></i>
+          <% end %>
+        </div>
         <img src="https://media.adeo.com/media/1417181/visu-chim-ne-2-jpg5c17c08045a8dc00011ee806.jpg?width=582&format=jpg&crop=16:9" />
         <div class="index-card-tool-dates text-center mt-2">
           <%= booking.start_date %>
           <i class="fa-solid fa-circle-chevron-right mx-3"></i>
           <%= booking.end_date %>
         </div>
-        <div class="index-card-tool-infos">
-            <h5><%= link_to booking.tool.name, tool_path(booking.tool), class: "text-decoration-none text-dark" %></h5>
-            <div>
-              <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-              <i class="fa-solid fa-trash-can text-dark"></i>
-              <% end %>
-            </div>
-        </div>
+        <h5 class="m-3"><%= link_to booking.tool.name, tool_path(booking.tool), class: "text-decoration-none", style: "color: $blue" %></h5>
       </div>
     </div>
   <% end %>

@@ -80,3 +80,5 @@ gem "devise"
 gem 'validates_overlap'
 
 gem "cloudinary"
+
+gem "geocoder"

@@ -21,3 +21,15 @@
   border-radius: 50%;
   padding: 4px;
 }
+
+.fa-solid.fa-star{
+  color: $yellow;
+  font-size: 12px;
+  letter-spacing: -0.3em;
+}
+
+.fa-solid.fa-location-dot, .fa-solid.fa-tag, .fa-solid.fa-wrench{
+  color: $blue;
+  font-size: 1em;
+  margin-right: 0.5em;
+}
