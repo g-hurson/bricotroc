@@ -21,7 +21,6 @@ export default class extends Controller {
           console.log(tool);
           const toolLat = tool.querySelector("#toolLat").value;
           const toolLong = tool.querySelector("#toolLong").value;
-          console.log(`\n\n PUTAIN DE COOORDONNEES ${toolLat} | ${toolLong}`);
           tool.innerText = `${this.distanceInKmBetweenEarthCoordinates(position.coords.latitude, position.coords.longitude, toolLat, toolLong).toFixed(2)}km`;
         });
       }
