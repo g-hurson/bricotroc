@@ -19,11 +19,46 @@ User.create(email: "joaquin@gmail.com", password: "3333")
 
 #Tools for development
 
-Tool.new(name: "Perceuse B&D", description: "Perceuse Black & Decker sans fil", category: Tool::CATEGORIES[1], user: User.first)
-Tool.create(name: "Ponceuse multifunction", description: "Ponceuse delta multifonction 130W", category: Tool::CATEGORIES[0], user: User.first)
-Tool.create(name: "Scie circulaire", description: "Scie circulaire plongeante MAKITA SP6000J1 - 1300W - 165MM", category: Tool::CATEGORIES[3], user: User.last)
-Tool.create(name: "Visseuse à choc", description: "Lot outils MAKITA LCT204J (Perceuse Visseuse DF330D - Visseuse à Choc TD090D", category: Tool::CATEGORIES[2], user: User.last)
-Tool.create(name: "Kit de presse", description: "Ensemble D'Outils De Roulement De Vélo Outil D'Installation D'Outils De Montage De Moyeu", category: Tool::CATEGORIES[5], user: User.last)
+Tool.create(name: "Perceuse B&D",
+  description: "Perceuse Black & Decker sans fil",
+  category: Tool::CATEGORIES[1],
+  user: User.first,
+  address: "6 rue du Repos 69007 LYON",
+  brand: "Black & Decker",
+  rating: 4,
+  condition: Tool::CONDITION[0])
+Tool.create(name: "Ponceuse multifunction",
+  description: "Ponceuse delta multifonction 130W",
+  category: Tool::CATEGORIES[0],
+  user: User.first,
+  address: "51 rue Anatole France 69100 VILLEURBANNE",
+  brand: "Bosch",
+  rating: 5,
+  condition: Tool::CONDITION[1])
+Tool.create(name: "Scie circulaire",
+  description: "Scie circulaire plongeante MAKITA SP6000J1 - 1300W - 165MM",
+  category: Tool::CATEGORIES[3],
+  user: User.last,
+  address: "1 Rue Justin Godart, 69004 Lyon",
+  brand: "Makita",
+  rating: 3,
+  condition: Tool::CONDITION[2])
+Tool.create(name: "Visseuse à choc",
+  description: "Lot outils MAKITA LCT204J (Perceuse Visseuse DF330D - Visseuse à Choc TD090D",
+  category: Tool::CATEGORIES[2],
+  user: User.last,
+  address: "1 Rue Justin Godart, 69004 Lyon",
+  brand: "Makita",
+  rating: 4,
+  condition: Tool::CONDITION[0])
+Tool.create(name: "Kit de presse",
+  description: "Ensemble D'Outils De Roulement De Vélo Outil D'Installation D'Outils De Montage De Moyeu",
+  category: Tool::CATEGORIES[5],
+  user: User.last,
+  address: "1 Rue Justin Godart, 69004 Lyon",
+  brand: "Inconnu",
+  rating: 2,
+  condition: Tool::CONDITION[2])
 
 # Bookings for development
 
