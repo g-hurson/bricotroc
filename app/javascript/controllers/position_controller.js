@@ -7,7 +7,6 @@ export default class extends Controller {
 
   connect() {
     this.getLocation();
-    //this.toolPosTargets.forEach((tool) => { tool.innerText = "ZOB" });
   }
 
   getLocation() {
@@ -18,7 +17,6 @@ export default class extends Controller {
       }
       if( this.toolPosTargets !== null){
         this.toolPosTargets.forEach((tool) => {
-          console.log(tool);
           const toolLat = tool.querySelector("#toolLat").value;
           const toolLong = tool.querySelector("#toolLong").value;
           tool.innerText = `${this.distanceInKmBetweenEarthCoordinates(position.coords.latitude, position.coords.longitude, toolLat, toolLong).toFixed(2)}km`;

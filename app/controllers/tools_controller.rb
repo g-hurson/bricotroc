@@ -5,6 +5,14 @@ class ToolsController < ApplicationController
     if params[:category].nil?
       @tools = Tool.all
       puts "\n\nCOULDNT FIND ANY CATEGORY\n\n"
+    elsif params[:category].empty?
+      @tools = Tool.all.select do |tool|
+        (distance_in_km_between_earth_coordinates(params[:positionLat].to_f,
+                                                  params[:positionLong].to_f,
+                                                  tool.latitude,
+                                                  tool.longitude) <= params[:distance].to_f)
+      end
+      puts "\n\SHOWING ALL CATEGORIES\n\n"
     else
       @tools = Tool.all.select do |tool|
         (tool.category == params[:category]) &&
