@@ -39,7 +39,7 @@
           <%= cl_image_tag tool.photos.first.key, height: 300, width: 400, crop: :thumb %>
           <% if tool.bookings.any? %>
             <div class="index-card-tool-bookings" >
-              <h2><%= tool.bookings.count %> demandes en cours</h2>
+              <h2><%= tool.bookings.count %> demande<% if tool.bookings.count > 1 %>s<% end %> en cours</h2>
             </div>
           <% end %>
           <div class="index-card-tool-infos">
