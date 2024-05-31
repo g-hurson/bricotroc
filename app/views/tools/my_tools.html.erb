@@ -24,6 +24,7 @@
         <%= f.input :description, label: "Description", class: "form-control" %>
         <%= f.input :condition, label: "Etat du produit", as: :select, collection: Tool::CONDITION, class: "form-control" %>
         <%= f.input :address, class: "form-control" %>
+        <%= f.input :photos, label: "Ajoutez vos photos", as: :file, input_html: { multiple: true } %>
       </div>
       <%= f.submit "Submit", class: "btn btn-info"%>
     <% end %>
