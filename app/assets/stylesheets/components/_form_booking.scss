@@ -1,15 +1,35 @@
 .booking-form {
+  display: flex;
   border-radius: $border-radius-lg;
   box-shadow: $box-shadow;
   padding: 16px;
   height: 100%;
 }
 
+.booking-form .simple_form {
+  width: 100%;
+}
+
+.booking-form .form-btn {
+  align-self: flex-end;
+  width: 100%;
+  // padding: 0 16px;
+  // border-radius: $border-radius-lg;
+  // border: none;
+  // box-shadow: $box-shadow;
+  // &:hover {
+    // background-color: $light-purple;
+  // }
+
+}
+
 .booking-form .btn {
   // border-top-right-radius: 50px;
   // border-bottom-right-radius: 50px;
+  width: 100%;
   background-color: $blue !important;
   border: none;
+  border-radius: $border-radius-lg;
 
 }
 
