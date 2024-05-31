@@ -22,6 +22,13 @@ class ToolsController < ApplicationController
                                                     tool.longitude) <= params[:distance].to_f)
       end
     end
+    @markers = @tools.geocoded.map do |tool|
+      {
+        lat: tool.latitude,
+        lng: tool.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {tool: tool})
+      }
+    end
     @tool = Tool.new
     @booking = Booking.new
   end

@@ -14,34 +14,50 @@
     </div>
   </div>
 
-  <div class="row row-cols-md-3 row-cols-lg-4 g-4 card-group mt-2 mx-5 p-5" >
-    <% @tools.each do |tool| %>
-      <div class="col-sm-3">
-        <%= link_to tool_path(tool), class: 'text-decoration-none' do %>
-          <div class="index-card-tool">
-            <%= cl_image_tag tool.photos.first.key, height: 300, width: 400, crop: :thumb %>
-            <div class="index-card-tool-infos">
-                <h2><%= tool.name %></h2>
-                <div>
-                  <% tool.rating.times do %>
-                    <i class="fa-solid fa-star"></i>
-                  <% end %>
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="row row-cols-md-2 g-4 card-group mt-2 mx-1 py-5" >
+        <% @tools.each do |tool| %>
+          <div class="col-sm-3">
+            <%= link_to tool_path(tool), class: 'text-decoration-none' do %>
+              <div class="index-card-tool">
+                <%= cl_image_tag tool.photos.first.key, height: 300, width: 400, crop: :thumb %>
+                <div class="index-card-tool-infos">
+                    <h2><%= tool.name %></h2>
+                    <div>
+                      <% tool.rating.times do %>
+                        <i class="fa-solid fa-star"></i>
+                      <% end %>
+                    </div>
                 </div>
-            </div>
-            <div class="index-card-tool-desc">
-              <p><i class="fa-solid fa-wrench"></i><strong>Catégorie : </strong><%= tool.category %></p>
-              <p><i class="fa-solid fa-tag"></i><strong>Marque : </strong><%= tool.brand %></p>
-              <p><i class="fa-solid fa-location-dot"></i><strong>Disponible à : </strong>
-                <p data-position-target="toolPos">
-                  DISTANCE TO DO
-                  <input type="hidden" id="toolLat" name="toolLat" value=<%= tool.latitude %> />
-                  <input type="hidden" id="toolLong" name="toolLong" value=<%= tool.longitude %> />
-                </p>
-              </p>
-            </div>
+                <div class="index-card-tool-desc">
+                  <p><i class="fa-solid fa-wrench"></i><strong>Catégorie : </strong><%= tool.category %></p>
+                  <p><i class="fa-solid fa-tag"></i><strong>Marque : </strong><%= tool.brand %></p>
+                  <div class="d-flex">
+                    <p><i class="fa-solid fa-location-dot"></i><strong>Disponible à : </strong></p>
+                    <p class="px-1" data-position-target="toolPos">
+                      DISTANCE TO DO
+                      <input type="hidden" id="toolLat" name="toolLat" value=<%= tool.latitude %> />
+                      <input type="hidden" id="toolLong" name="toolLong" value=<%= tool.longitude %> />
+                    </p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>
-    <% end %>
+    </div>
+    <div class="col-sm-5" style="height: 800px">
+      <div class="m1 px-2 py-5 sticky-element">
+        <div class="m1 px-2 py-5">
+          <div style="border-radius: 16px; width: 100%; height: 600px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
