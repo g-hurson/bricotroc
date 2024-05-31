@@ -6,12 +6,14 @@
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.btn {
+.btn-index {
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
   background-color: $blue !important;
+  width: 150px;
+  color: white;
   border: none;
-
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .form-index-field, .form-index-submit {
