@@ -30,7 +30,7 @@ tool = Tool.new(name: "Perceuse B&D",
 
 photos_perceuse = ["perceuse1.jpg", "perceuse2.jpg", "perceuse3.jpg"]
 photos_perceuse.each do |photo|
- tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photos_perceuse.shift}")), filename: photo, content_type: "image/jpg")
+ tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photo}")), filename: photo, content_type: "image/jpg")
 end
 tool.save
 
@@ -45,7 +45,7 @@ tool = Tool.new(name: "Ponceuse multifunction",
 
 photos_ponceuse = ["ponceuse1.jpg", "ponceuse2.jpg", "ponceuse3.jpg"]
 photos_ponceuse.each do |photo|
-  tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photos_ponceuse.shift}")), filename: photo, content_type: "image/jpg")
+  tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photo}")), filename: photo, content_type: "image/jpg")
 end
 tool.save
 
@@ -60,7 +60,7 @@ tool = Tool.new(name: "Scie manuelle",
 
 photos_scie = ["scie1.jpeg", "scie2.jpeg", "scie3.jpeg"]
 photos_scie.each do |photo|
-  tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photos_scie.shift}")), filename: photo, content_type: "image/jpeg")
+  tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photo}")), filename: photo, content_type: "image/jpeg")
 end
 tool.save
 
@@ -75,7 +75,7 @@ tool = Tool.new(name: "Visseuse à choc",
 
 photos_visseuse = ["visseuse1.jpg", "visseuse2.jpg", "visseuse3.jpg"]
 photos_visseuse.each do |photo|
-  tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photos_visseuse.shift}")), filename: photo, content_type: "image/jpg")
+  tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photo}")), filename: photo, content_type: "image/jpg")
 end
 tool.save
 
@@ -90,7 +90,7 @@ tool = Tool.new(name: "Kit de pressage",
 
 photos_kit = ["kit1.jpg", "kit2.jpg", "kit3.jpg", "kit4.jpg"]
 photos_kit.each do |photo|
-  tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photos_kit.shift}")), filename: photo, content_type: "image/jpg")
+  tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photo}")), filename: photo, content_type: "image/jpg")
 end
 tool.save
 
