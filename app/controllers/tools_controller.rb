@@ -35,6 +35,13 @@ class ToolsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @marker = [
+      {
+        lat: @tool.geocode.first,
+        lng: @tool.geocode.last,
+        info_window_html: render_to_string(partial: "info_window", locals: {tool: @tool})
+      }
+    ]
   end
 
   def my_tools

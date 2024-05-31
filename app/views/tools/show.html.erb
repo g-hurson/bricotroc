@@ -70,7 +70,15 @@
     <%# Tool map %>
     <div class="col-sm-12 col-md-12 col-lg-4">
       <div class="map">
-        <p>MAP PLACE HOLDER</p>
+        <div class="m1 px-2 py-2">
+          <div class="m1 px-2">
+            <div style="border-radius: 16px; width: 100%; height: 300px;"
+              data-controller="map"
+              data-map-markers-value="<%= @marker.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
