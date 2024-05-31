@@ -1,18 +1,37 @@
 
 <div class="container">
   <div class="row mt-4">
-    <div class="col-8">
-      <div class="image-cover">
-        <div class="image-item">
-          <%= cl_image_tag @tool.photos.first.key, height: 300, width: 400, crop: :fill %>
+    <div class="col-sm-6 col-md-6 col-lg-8">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8">
+          <div class="image-cover">
+            <div class="image-item">
+              <%= cl_image_tag @tool.photos.first.key, height: 500, width: 500, crop: :auto %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-4">
+          <div class="image-grid">
+            <% @tool.photos.each do |photo| %>
+              <div class="image-item">
+                <%= cl_image_tag photo.key, height: 200, width: 400, crop: :auto %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-4">
-      <div class="image-grid">
-        <% @tool.photos.each do |photo| %>
-          <div class="image-item">
-            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <div class="col-sm-6 col-md-6 col-lg-4">
+      <div class="booking-form">
+        <%= simple_form_for [@tool, @booking] do |f| %>
+          <div class="form-inputs">
+            <%= f.input :start_date, label: "début", as: :string, input_html: { data: { controller: "datepicker"}}%>
+          </div>
+          <div class="form-inputs">
+            <%= f.input :end_date, label: "fin", as: :string, input_html: { data: { controller: "datepicker"}}%>
+          </div>
+          <div class="form-inputs">
+            <%= f.submit "Reserver", class: "btn btn-primary"%>
           </div>
         <% end %>
       </div>
@@ -48,19 +67,10 @@
         </div>
       </div>
     </div>
+    <%# Tool map %>
     <div class="col-sm-12 col-md-12 col-lg-4">
-      <div class="booking-form">
-        <%= simple_form_for [@tool, @booking] do |f| %>
-          <div class="form-inputs">
-            <%= f.input :start_date, label: "début", as: :string, input_html: { data: { controller: "datepicker"}}%>
-          </div>
-          <div class="form-inputs">
-            <%= f.input :end_date, label: "fin", as: :string, input_html: { data: { controller: "datepicker"}}%>
-          </div>
-          <div class="form-inputs">
-            <%= f.submit "Reserver", class: "btn btn-primary"%>
-          </div>
-        <% end %>
+      <div class="map">
+        <p>MAP PLACE HOLDER</p>
       </div>
     </div>
   </div>
