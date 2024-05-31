@@ -18,7 +18,7 @@ User.create(email: "theo@gmail.com", password: "2222")
 User.create(email: "joaquin@gmail.com", password: "3333")
 
 #Tools for development
-tool = Tool.new(name: "Perceuse B&D",
+tool = Tool.new(name: "Perceuse sans fil",
   description: "Je mets à disposition ma perceuse-visseuse sans fil avec ses accessoires (forets bois, forets acier, embouts vissage, batterie et chargeur).
   Idéal pour effectuer vos travaux de bricolage quotidien à un prix réduit. Possibilité de prendre en même temps les têtes ponceuse/grattoir/scie sabre bois ou métal.
   Au plaisir de vous dépanner, Dorine",
