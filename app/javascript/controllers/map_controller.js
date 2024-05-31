@@ -8,15 +8,14 @@ export default class extends Controller {
   };
 
   connect() {
-    console.log("koqizjdfishqdfoiqjsdofihqLISFH");
-    mapboxgl.accessToken = this.apiKeyValue;
+    mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10",
     });
     this.#addMarkersToMap();
-    this.#fitMapToMarkers();
+    this.#fitMapToMarkers()
   }
 
   #addMarkersToMap() {
@@ -25,7 +24,7 @@ export default class extends Controller {
       new mapboxgl.Marker()
         .setLngLat([marker.lng, marker.lat])
         .setPopup(popup)
-        .addTo(this.map);
+        .addTo(this.map)
     });
   }
 
