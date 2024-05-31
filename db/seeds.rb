@@ -39,7 +39,7 @@ tool = Tool.new(name: "Perceuse B&D",
   description: "BLACK+DECKER BDCDD12-QW Perceuse-visseuse sans fil - Chargeur inclus, 10.8V, Sans coffret, 1 batterie",
   category: Tool::CATEGORIES[1],
   user: User.first,
-  address: "1 Mnt de la Vigourette, 69270 Cailloux-sur-Fontaines",
+  address: "35 Rue du Sillon, 69360 Communay",
   brand: "Black & Decker",
   rating: 2,
   condition: Tool::CONDITION[1])
