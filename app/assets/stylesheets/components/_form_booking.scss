@@ -1,0 +1,39 @@
+.booking-form {
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow;
+  padding: 16px;
+  height: 100%;
+}
+
+.booking-form .btn {
+  // border-top-right-radius: 50px;
+  // border-bottom-right-radius: 50px;
+  background-color: $blue !important;
+  border: none;
+
+}
+
+.booking-form .form-field, .form-submit {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: white;
+  &:hover {
+    background-color: $light-purple;
+  }
+  input {
+    border: none;
+    width: 100px
+  }
+}
+
+
+.booking-form .form-control, .form-select {
+  background-color: white;
+  border: none;
+}
+
+.booking-form , input {
+  margin-bottom: 0 !important;
+  &:hover {
+    background-color: $light-purple;
+  }
+}
