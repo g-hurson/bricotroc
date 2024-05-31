@@ -18,7 +18,7 @@ User.create(email: "theo@gmail.com", password: "2222")
 User.create(email: "joaquin@gmail.com", password: "3333")
 
 #Tools for development
-tool = Tool.new(name: "Perceuse B&D",
+tool = Tool.new(name: "Perceuse sans fil",
   description: "Je mets à disposition ma perceuse-visseuse sans fil avec ses accessoires (forets bois, forets acier, embouts vissage, batterie et chargeur).
   Idéal pour effectuer vos travaux de bricolage quotidien à un prix réduit. Possibilité de prendre en même temps les têtes ponceuse/grattoir/scie sabre bois ou métal.
   Au plaisir de vous dépanner, Dorine",
@@ -39,7 +39,7 @@ tool = Tool.new(name: "Perceuse B&D",
   description: "BLACK+DECKER BDCDD12-QW Perceuse-visseuse sans fil - Chargeur inclus, 10.8V, Sans coffret, 1 batterie",
   category: Tool::CATEGORIES[1],
   user: User.first,
-  address: "1 Mnt de la Vigourette, 69270 Cailloux-sur-Fontaines",
+  address: "35 Rue du Sillon, 69360 Communay",
   brand: "Black & Decker",
   rating: 2,
   condition: Tool::CONDITION[1])

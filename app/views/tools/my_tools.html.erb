@@ -24,6 +24,7 @@
         <%= f.input :description, label: "Description", class: "form-control" %>
         <%= f.input :condition, label: "Etat du produit", as: :select, collection: Tool::CONDITION, class: "form-control" %>
         <%= f.input :address, class: "form-control" %>
+        <%= f.input :photos, label: "Ajoutez vos photos", as: :file, input_html: { multiple: true } %>
       </div>
       <%= f.submit "Submit", class: "btn btn-info"%>
     <% end %>
@@ -38,7 +39,7 @@
           <%= cl_image_tag tool.photos.first.key, height: 300, width: 400, crop: :thumb %>
           <% if tool.bookings.any? %>
             <div class="index-card-tool-bookings" >
-              <h2><%= tool.bookings.count %> demandes en cours</h2>
+              <h2><%= tool.bookings.count %> demande<% if tool.bookings.count > 1 %>s<% end %> en cours</h2>
             </div>
           <% end %>
           <div class="index-card-tool-infos">

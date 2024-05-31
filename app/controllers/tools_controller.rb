@@ -22,10 +22,10 @@ class ToolsController < ApplicationController
                                                     tool.longitude) <= params[:distance].to_f)
       end
     end
-    @markers = @tools.geocoded.map do |tool|
+    @markers = @tools.map do |tool|
       {
-        lat: tool.latitude,
-        lng: tool.longitude,
+        lat: tool.geocode.first,
+        lng: tool.geocode.last,
         info_window_html: render_to_string(partial: "info_window", locals: {tool: tool})
       }
     end
@@ -70,7 +70,7 @@ class ToolsController < ApplicationController
   private
 
   def tool_params
-    params.require(:tool).permit(:name, :description, :category, :condition, :rating, :brand, :address)
+    params.require(:tool).permit(:name, :description, :category, :condition, :rating, :brand, :address, photos: [])
   end
 
   def set_tool
