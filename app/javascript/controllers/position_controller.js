@@ -7,7 +7,6 @@ export default class extends Controller {
 
   connect() {
     this.getLocation();
-    //this.toolPosTargets.forEach((tool) => { tool.innerText = "ZOB" });
   }
 
   getLocation() {

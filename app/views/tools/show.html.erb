@@ -32,10 +32,18 @@
               <i class="fa-solid fa-star"></i>
             <% end %>
           </div>
-          <div class="index-card-tool-desc">
+          <div class="index-card-tool-desc" data-controller="position">
             <p><i class="fa-solid fa-wrench"></i><strong>Catégorie : </strong><%= @tool.category %></p>
             <p><i class="fa-solid fa-tag"></i><strong>Marque : </strong><%= @tool.brand %></p>
-            <p><i class="fa-solid fa-location-dot"></i><strong>Disponible à : </strong>DISTANCE TO DO</p>
+            <p><i class="fa-solid fa-location-dot"></i><strong>Disponible à : </strong>
+                <p data-position-target="toolPos">
+                  DISTANCE TO DO
+                  <input type="hidden" id="toolLat" name="toolLat" value=<%= @tool.latitude %> />
+                  <input type="hidden" id="toolLong" name="toolLong" value=<%= @tool.longitude %> />
+                  <input data-position-target="lat" type="hidden" id="uselessLat" name="uselessLat" value=<%= @tool.latitude %> />
+                  <input data-position-target="long" type="hidden" id="uselessLong" name="uselessLong" value=<%= @tool.longitude %> />
+                </p>
+              </p>
           </div>
         </div>
       </div>
