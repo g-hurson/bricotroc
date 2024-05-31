@@ -18,19 +18,35 @@ User.create(email: "theo@gmail.com", password: "2222")
 User.create(email: "joaquin@gmail.com", password: "3333")
 
 #Tools for development
+tool = Tool.new(name: "Perceuse B&D",
+  description: "Je mets à disposition ma perceuse-visseuse sans fil avec ses accessoires (forets bois, forets acier, embouts vissage, batterie et chargeur).
+  Idéal pour effectuer vos travaux de bricolage quotidien à un prix réduit. Possibilité de prendre en même temps les têtes ponceuse/grattoir/scie sabre bois ou métal.
+  Au plaisir de vous dépanner, Dorine",
+  category: Tool::CATEGORIES[1],
+  user: User.first,
+  address: "6 rue du Repos 69007 Lyon",
+  brand: "Parkside",
+  rating: 5,
+  condition: Tool::CONDITION[1])
+
+photos_perceuse = ["perceuse4.jpg", "perceuse5.jpg", "perceuse6.jpg"]
+photos_perceuse.each do |photo|
+  tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photo}")), filename: photo, content_type: "image/jpg")
+end
+tool.save
 
 tool = Tool.new(name: "Perceuse B&D",
   description: "BLACK+DECKER BDCDD12-QW Perceuse-visseuse sans fil - Chargeur inclus, 10.8V, Sans coffret, 1 batterie",
   category: Tool::CATEGORIES[1],
   user: User.first,
-  address: "6 rue du Repos 69007 LYON",
+  address: "1 Mnt de la Vigourette, 69270 Cailloux-sur-Fontaines",
   brand: "Black & Decker",
-  rating: 4,
-  condition: Tool::CONDITION[0])
+  rating: 2,
+  condition: Tool::CONDITION[1])
 
 photos_perceuse = ["perceuse1.jpg", "perceuse2.jpg", "perceuse3.jpg"]
 photos_perceuse.each do |photo|
- tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photo}")), filename: photo, content_type: "image/jpg")
+  tool.photos.attach(io: File.open(Rails.root.join("app/assets/images/#{photo}")), filename: photo, content_type: "image/jpg")
 end
 tool.save
 
