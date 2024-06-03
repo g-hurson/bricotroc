@@ -10,8 +10,9 @@
 .sticky-element{
   position: sticky;
   top: 1px;
-  height: 250px;
 }
 .mapboxgl-map{
   box-shadow: $box-shadow;
+  border-radius: $border-radius-lg;
+
 }
