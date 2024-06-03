@@ -8,14 +8,27 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+require "open-uri"
+
+cloudinary_path = "https://collection.cloudinary.com/dk5jeli9u/"
+# https://collection.cloudinary.com/dk5jeli9u/57bd50b0ef9cdc3235567bc314699065
+
 Booking.destroy_all
 Tool.destroy_all
 User.destroy_all
 # Users for development
 
-User.create(email: "geraldine@gmail.com", password: "1111")
-User.create(email: "theo@gmail.com", password: "2222")
-User.create(email: "joaquin@gmail.com", password: "3333")
+geraldine = User.new(email: "geraldine@gmail.com", password: "1111")
+geraldine.avatar.attach(io: File.open(Rails.root.join("app/assets/images/geraldine.jpeg")), filename: "geraldine.jpeg", content_type: "image/jpeg")
+geraldine.save
+
+theo = User.new(email: "theo@gmail.com", password: "2222")
+theo.avatar.attach(io: File.open(Rails.root.join("app/assets/images/theo.jpeg")), filename: "theo.jpeg", content_type: "image/jpeg")
+theo.save
+
+joaquin = User.new(email: "joaquin@gmail.com", password: "3333")
+joaquin.avatar.attach(io: File.open(Rails.root.join("app/assets/images/joaquin.jpeg")), filename: "joaquin.jpeg", content_type: "image/jpeg")
+joaquin.save
 
 #Tools for development
 tool = Tool.new(name: "Perceuse sans fil",
@@ -28,6 +41,9 @@ tool = Tool.new(name: "Perceuse sans fil",
   brand: "Parkside",
   rating: 5,
   condition: Tool::CONDITION[1])
+
+# Test uploading images from cloudinary
+# tool.photos.attach(io: URI.open("https://res.cloudinary.com/dk5jeli9u/image/upload/v1717198978/bricotroc/perceuse1.jpg"), filename: "perceuse1.jpg", content_type: "image/jpg")
 
 photos_perceuse = ["perceuse4.jpg", "perceuse5.jpg", "perceuse6.jpg"]
 photos_perceuse.each do |photo|

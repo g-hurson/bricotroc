@@ -1,11 +1,11 @@
-<div class="container">
-  <div class="row mt-4">
+<div class="container mw-100 p-4">
+  <div class="row mb-4">
     <div class="col-sm-6 col-md-6 col-lg-8">
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-8">
           <div class="image-cover">
             <div class="image-item">
-              <%= cl_image_tag @tool.photos.first.key, height: 500, width: 500, crop: :auto %>
+              <%= cl_image_tag @tool.photos.first.key, gravity: "auto", aspect_ratio: "1:1", width: "482", crop: "fill"%>
             </div>
           </div>
         </div>
@@ -13,7 +13,7 @@
           <div class="image-grid">
             <% @tool.photos.each do |photo| %>
               <div class="image-item">
-                <%= cl_image_tag photo.key, height: 200, width: 400, crop: :auto %>
+                <%= cl_image_tag photo.key, gravity: "auto", crop: "thumb", width: "230"%>
               </div>
             <% end %>
           </div>
@@ -37,47 +37,37 @@
     </div>
   </div>
   <%# Tool information %>
-  <div class="row mt-4">
+  <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-8">
-      <h2><%=@tool.name %></h2>
-      <div class="">
-        <div class="">
-          <div>
-            <p><%=@tool.description %></p>
-          </div>
-          <div class="mb-2">
-            <% @tool.rating.times do %>
-              <i class="fa-solid fa-star"></i>
-            <% end %>
-          </div>
-          <div class="index-card-tool-desc" data-controller="position">
-            <p><i class="fa-solid fa-wrench"></i><strong>Catégorie : </strong><%= @tool.category %></p>
-            <p><i class="fa-solid fa-tag"></i><strong>Marque : </strong><%= @tool.brand %></p>
-            <div class="d-flex">
-              <p><i class="fa-solid fa-location-dot"></i><strong>Disponible à : </strong></p>
-              <p class="px-1"  data-position-target="toolPos">
-                DISTANCE TO DO
-                <input type="hidden" id="toolLat" name="toolLat" value=<%= @tool.latitude %> />
-                <input type="hidden" id="toolLong" name="toolLong" value=<%= @tool.longitude %> />
-                <input data-position-target="lat" type="hidden" id="uselessLat" name="uselessLat" value=<%= @tool.latitude %> />
-                <input data-position-target="long" type="hidden" id="uselessLong" name="uselessLong" value=<%= @tool.longitude %> />
-              </p>
-            </div>
-          </div>
+      <div class="index-card-tool-desc" data-controller="position">
+        <h2><%=@tool.name %></h2>
+        <p><%=@tool.description %></p>
+        <div class="mb-2">
+          <% @tool.rating.times do %>
+            <i class="fa-solid fa-star"></i>
+          <% end %>
+        </div>
+        <p><i class="fa-solid fa-wrench"></i><strong>Catégorie : </strong><%= @tool.category %></p>
+        <p><i class="fa-solid fa-tag"></i><strong>Marque : </strong><%= @tool.brand %></p>
+        <div class="d-flex">
+          <p><i class="fa-solid fa-location-dot"></i><strong>Disponible à : </strong></p>
+          <p class="px-1"  data-position-target="toolPos">
+            DISTANCE TO DO
+            <input type="hidden" id="toolLat" name="toolLat" value=<%= @tool.latitude %> />
+            <input type="hidden" id="toolLong" name="toolLong" value=<%= @tool.longitude %> />
+            <input data-position-target="lat" type="hidden" id="uselessLat" name="uselessLat" value=<%= @tool.latitude %> />
+            <input data-position-target="long" type="hidden" id="uselessLong" name="uselessLong" value=<%= @tool.longitude %> />
+          </p>
         </div>
       </div>
     </div>
     <%# Tool map %>
     <div class="col-sm-12 col-md-12 col-lg-4">
       <div class="map">
-        <div class="m1 px-2 py-2">
-          <div class="m1 px-2">
-            <div style="border-radius: 16px; width: 100%; height: 300px;"
-              data-controller="map"
-              data-map-markers-value="<%= @marker.to_json %>"
-              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-            </div>
-          </div>
+        <div style="border-radius: 16px; width: 100%; height: 300px;"
+          data-controller="map"
+          data-map-markers-value="<%= @marker.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
     </div>

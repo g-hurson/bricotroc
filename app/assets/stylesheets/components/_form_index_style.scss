@@ -3,7 +3,8 @@
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
   padding-right: 40px !important;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: $box-shadow;
+  // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .btn-index {
@@ -13,11 +14,13 @@
   width: 150px;
   color: white;
   border: none;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: $box-shadow;
+  // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .form-index-field, .form-index-submit {
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: $box-shadow;
+  // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background-color: white;
   &:hover {
     background-color: $light-purple;
@@ -29,7 +32,8 @@
 }
 
 .form-index-first {
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: $box-shadow;
+  // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
   padding-left: 40px !important;
